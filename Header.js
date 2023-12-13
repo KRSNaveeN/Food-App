@@ -1,14 +1,17 @@
 import classes from './Header.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useState} from 'react';
-const Header = ()=>{ 
-   const [value,setValue] = useState(0);
+const Header = ({value,cart})=>{ 
+//    const [value,setValue] = useState(value);
+let showCartHandler=()=>{
+   cart(true);
+}
     return<>
      <div  className={classes.mainimage}>
     <header className={classes.header}>
     <h2>React Meals</h2>
-    <button> Your Cart <span>({value})</span></button>
-    <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+    <button className={classes.btn} onClick={showCartHandler}> Your Cart <span className={classes.val}>{value}</span></button>
+    {/* <FontAwesomeIcon icon="fa-solid fa-cart-shopping" /> */}
    
   </header>
  

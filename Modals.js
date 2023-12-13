@@ -5,8 +5,8 @@ import styles from '../Modal/Modal.module.css';
 import Modal from "../Modal/Modal";
 import ReactDOM from 'react-dom';
 
-let Backdrop = ()=>{
-  return(  <div className={styles.backdrop}></div>);
+let Backdrop = ({cart})=>{
+  return(  <div onClick={()=>cart(false)} className={styles.backdrop}></div>);
 }
 
 let     Cart = ({cart,cartvalue, data})=>{
@@ -65,7 +65,7 @@ const Modals =({data,cartvalue,cart})=>{
 
     
     return <Modal>
-        {ReactDOM.createPortal(<Backdrop />, document.getElementById('backdrop'))}
+        {ReactDOM.createPortal(<Backdrop cart={cart}/>, document.getElementById('backdrop'))}
         {ReactDOM.createPortal(<Cart data={data} cartvalue={cartvalue} cart={cart}/>, document.getElementById('modal'))}
        
         </Modal>
